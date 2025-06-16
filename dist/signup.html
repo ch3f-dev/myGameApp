@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Play Signup</title>
+</head>
+<body>
+  <main id="mainContainer" class="bg-black flex flex-col items-center justify-center gap-8 h-screen w-full">
+    <header id="header" class="flex flex-col items-center justify-center text-white">
+      <h1 id="create" class="text-3xl">Create an account</h1>
+      <p class="text-gray-500">Start your crypto journey with us</p>
+    </header>
+
+    <form action="" id="signupForm" class="flex flex-col gap-y-4 items-center justify-center w-full">
+      <input type="text" id="username" placeholder="Username" class="input-field w-3xs text-white bg-[#1a1a1a] p-3 rounded border-1 border-gray-500" required>
+      <input type="email" id="email" placeholder="Email" class="input-field w-3xs text-white bg-[#1a1a1a] p-3 rounded border-1 border-gray-500" required>
+      <div id="passwordWrapper" class="flex items-center relative w-max-full">
+        <input type="password" id="password" placeholder="Password" class="input-field w-3xs text-white bg-[#1a1a1a] p-3 rounded border-1 border-gray-500" required>
+        <button id="show" class="absolute right-0 p-2 rounded text-gray-400 text-sm">SHOW</button>
+      </div>
+
+    </form>
+  </main>
+</body>
+</html>
