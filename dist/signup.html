@@ -22,7 +22,15 @@
 
       <input type="password" id="confirmPassword" placeholder="Confirm Password" class="input-field w-3xs text-white bg-[#1a1a1a] p-3 rounded  border-1 border-gray-500" required>
 
+    <div id="agreement">
+        <input type="checkbox" id="terms" class="text-white bg-[#1a1a1a] p-2 rounded border-1 border-gray-500" required>
+        <label for="terms" class="text-gray-500">I agree to the <a href="#" class="text-blue-500 hover:underline">Terms and Conditions</a></label>
+      </div>
+      <button type="submit" id="signupButton" class="bg-blue-500 w-3xs text-white p-3 rounded hover:bg-blue-600 transition duration-300">Sign Up</button>
     </form>
+    <div id="forLogin" class="flex items-center justify-center gap-x-4">
+      <span class="text-white">Already have an account?</span><a href="/dist/index.html" class="text-blue-500">Login</a>
+    </div>
   </main>
 </body>
 </html>
