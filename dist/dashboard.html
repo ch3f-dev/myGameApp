@@ -2,75 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="vieQport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/dist/style.css">
   <title>Crypto Play Dashboard</title>
 </head>
 <body>
-  <main id="mainContainer" class=" bg-[#0e1a22] flex flex-col items-center justify-center gap-8 min-h-screen p-4">
-    <div class="text-white  bg-black rounded-2xl shadow-2xl w-full max-w-md p-8 animate-slide-up">
+  <main id="mainContainer" class="min-h-screen bg-[#0e1a22] flex flex-col items-center justify-center gap-8 p-4">
+    <div class="text-white bg-black rounded-2xl shadow-2xl w-full max-w-4xl p-8 animate-slide-up">
 
       <div class="text-center mb-8">
-        <h1 class="text-4xl font-bold text-white mb-2">Welcome, <span>Player 123</span></h1>
+        <h1 class="text-3xl font-bold text-white mb-2">Welcome, <span>Player 123</span></h1>
         <p class="text-[#53555e]">Ready to deposit and play?</p>
       </div>
 
-      <section id="account">
-        <div id="balance" class="text-center mb-8 bg-gray-900 p-4 rounded-lg shadow-lg">
-          <h2 class="text-2xl font-semibold text-green-300 mb-2">YOUR BALANCE</h2>
+      <section id="account" class="lg:flex lg:justify-evenly gap-8 mb-10">
+        <div id="balance" class="w-full text-center mb-8 bg-gray-900 p-4 rounded-lg shadow-lg">
+          <h2 class="text-xl font-semibold text-green-300 mb-2">YOUR BALANCE</h2>
           <p class="text-2xl text-green-500">2 ETH</p>
         </div>
-        <div class="flex flex-col items-center gap-4">
+        <div class="w-full flex flex-col items-center gap-4 sm:flex-row sm:justify-between">
           <button id="depositBtn" class="w-full bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 px-4 rounded-lg font-semibold hover:from-blue-600 hover:to-purple-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transform hover:-translate-y-0.5 transition-all duration-300 shadow-lg hover:shadow-xl">
             Deposit
           </button>
           <button id="withdrawBtn" class="w-full bg-gradient-to-r from-red-500 to-orange-600 text-white py-3 px-4 rounded-lg font-semibold hover:from-red-600 hover:to-orange-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transform hover:-translate-y-0.5 transition-all duration-300 shadow-lg hover:shadow-xl">
             Withdraw
           </button>
+        </div>
       </section>
 
-      <div class="flex gap-x-4"> 
-        <section id="transactions" class="mt-8">
+      <div class="flex flex-col md:flex-row justify-between gap-8 mt-10">
+
+        <!-- Transactions History-->
+        <section id="transactions" class="w-full md:w-1/2">
           <h2 class="font-semibold text-white mb-4">Recent Transactions</h2>
-          <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
-            <ul class="space-y-4">
+          <div class="bg-gray-800 p-4 rounded-lg shadow-lg flex flex-col justify-center">
+            <p class="flex justify-between w-full text-sm text-gray-400 mb-4">
+              <span>Date</span>
+              <span>Amount</span>
+              <span>Type</span>
+            </p>
+            <ul class="w-full space-y-2">
               <li class="flex justify-between text-sm text-gray-400">
-                <span>Deposit: 1 ETH</span>
-                <span>2023-10-01 12:00</span>
+                <span>22-Jun</span>
+                <span>1 ETH</span>
+                <span>Withdraw</span>
               </li>
-              <li class="flex justify-between text-gray-400">
-                <span>Withdraw: 0.5 ETH</span>
-                <span>2023-10-02 14:30</span>
+              <li class="flex justify-between text-sm text-gray-400">
+                <span>22-Jun</span>
+                <span>2 ETH</span>
+                <span>Withdraw</span>
               </li>
-              <li class="flex justify-between text-gray-400">
-                <span>Deposit: 0.2 ETH</span>
-                <span>2023-10-03 16:45</span>
+              <li class="flex justify-between text-sm text-gray-400">
+                <span>21-Jun</span>
+                <span>2 ETH</span>
+                <span>Deposit</span>
               </li>
             </ul>
           </div>
         </section>
 
-        <section id="games" class="mt-8 items-center">
-          <h2 class="text-2xl font-semibold text-white mb-4">Available Games</h2>
-          <div class="grid gap-4">
-            <div class="bg-gray-800 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <h3 class="text-xl font-semibold text-white mb-2">Game 1</h3>
-              <p class="text-gray-400">Description of Game 1.</p>
+        <!--Available Games -->
+        <section id="games" class="w-full md:w-1/2 sm:w-1/4">
+          <h2 class="font-semibold text-white mb-4 text-end md:text-start">Available Games</h2>
+          <div class="grid sm:grid grid-cols-2 gap-4 items-end">
+            <div class="bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-4 text-center">
+              <h3 class="text-lg font-semibold text-white mb-2 lg:text-sm lg:py-1">Rock Paper Scissors</h3>
+              <button class="bg-blue-600 p-1 w-full text-white rounded">Play Now</button>
             </div>
-            <div class="bg-gray-800 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <h3 class="text-xl font-semibold text-white mb-2">Game 2</h3>
-              <p class="text-gray-400">Description of Game 2.</p>
+
+            <div class="bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-4 text-center">
+              <h3 class="text-lg font-semibold text-white mb-2">Spin Da Bottle</h3>
+              <button class="bg-blue-600 p-1 w-full text-white rounded">Play Now</button>
             </div>
-            <div class="bg-gray-800 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <h3 class="text-xl font-semibold text-white mb-2">Game 3</h3>
-              <p class="text-gray-400">Description of Game 3.</p>
+
+            <div class="bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-4 text-center">
+              <h3 class="text-lg font-semibold text-white mb-2">Spin Da Bottle</h3>
+              <button class="bg-blue-600 p-1 w-full text-white rounded">Play Now</button>
+            </div>
+
+            <div class="bg-gray-800 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 p-4 text-center">
+              <h3 class="text-lg font-semibold text-white mb-2">Spin Da Bottle</h3>
+              <button class="bg-blue-600 p-1 w-full text-white rounded">Play Now</button>
             </div>
           </div>
         </section>
       </div>
     </div>
   </main>
-  
 </body>
 </html>
