@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/dist/style.css">
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <main class="flex flex-col items-center justify-center h-screen bg-blue-200">
+    <div class="flex flex-col items-center justify-center">
+      <img src="https://cdn-icons-png.flaticon.com/512/1040/1040214.png" alt="Rock Paper Scissors" class="w-32 h-32 mb-4">
+    </div>
+  <h2 class="text-3xl text-center font-bold mt-10">
+    Rock Paper Scissors
+  </h2>
+
+  <p class="text-lg mb-4">Choose your move:</p>
+
+  <div id="buttonsWrapper" class="flex items-center justify-center gap-4">
+    <button class="btns bg-blue-500 text-amber-900 px-4 py-2 rounded" onclick="theGame(this)">Rock</button>
+    <button class="btns bg-blue-500 text-amber-900 px-4 py-2 rounded" onclick="theGame(this)">Paper</button>
+    <button class="btns bg-blue-500 text-amber-900 px-4 py-2 rounded" onclick="theGame(this)">Scissors</button>
+  </div>
+
+  <div id="checkResult" class="mt-4 bg-blue-400 p-4 rounded hidden">
+    <p id="yMove" class="text-lg"></p>
+    <p id="cMove" class="text-lg"></p>
+    <p id="outcome" class="text-lg font-bold"></p>
+  </div>
+</main>
+
+
+  <script>
+    let check = document.querySelector('#checkResult');
+    const yMove = document.querySelector('#yMove');
+    const cMove = document.querySelector('#cMove');
+    const outcome = document.querySelector('#outcome');
+
+
+    // this function makes sure that the container showing the game result does not display by default, it only displays when its contents are filled
+    function checkEmpty() {
+      const checkResult = check;
+      const y = yMove.textContent.trim(); /* this method checks to make sure that the input is a string and not an empty space*/
+      const c = cMove.textContent.trim();
+      const o = outcome.textContent.trim();
+      if (!y && !c && !o){
+        checkResult.classList.add('hidden'); /* css to hide the div when it is empty*/
+      } else {
+        checkResult.classList.remove('hidden'); /* css to unhide the div when it is filled*/
+      };
+    };
+
+
+    // this function is called/ executed when any of the button is clicked and it takes a parameter button
+    function theGame(button) {
+      const randomNum = Math.random(); /*this method picks a random number between 0 and 1*/
+      let yourMove = button.textContent;
+      let computerMove = '';
+      let result = '';
+
+
+      // naming computer's move from the randomly generated number
+      if (randomNum > 0 && randomNum < 1/3) {
+        computerMove = 'Rock';
+      } else if (randomNum >= 1/3 && randomNum < 2/3){
+        computerMove = 'Paper';
+      } else if (randomNum >= 2/3 && randomNum < 1) {
+        computerMove = 'Scissors';
+      };
+     
+      /*determining the outcome of the game: 
+      the concept is that whatever the user chooses, the computer must not choose the same and must not choose the next
+      ROCK-PAPER-SCISSORS
+      if the computer chooses the same, it's a tie (ROCK-ROCK)
+      if the computer chooses the next, the user loses (ROCK-PAPER, PAPER-SCISSORS, SCISSORS-ROCK)
+      if the computer chooses the 3rd option, the user wins (ROCK-SCISSORS, PAPER-ROCK, SCISSORS-PAPER)
+      */
+
+      if (computerMove === yourMove) {
+      result = 'A Tie!';
+      } else if ((yourMove === 'Rock' && computerMove === 'Scissors') ||
+      (yourMove === 'Paper' && computerMove === 'Rock') ||
+      (yourMove === 'Scissors' && computerMove === 'Paper')) {
+        result = 'You win!';
+      } else {
+        result = 'You lose!';
+      };
+
+      // here is displaying the choices and outcome on the UI
+      yMove.innerText = `You chose : ${yourMove}`;
+      cMove.innerText = `Computer chose: ${computerMove}`;
+      outcome.innerText = `${result}`;
+
+      checkEmpty(); /*this function is called inside theGame() so that it returns the choices as empty strings before another button is clicked*/
+    };
+    
+
+
+    
+
+
+
+
+ 
+  </script>
+</body>
+</html>
